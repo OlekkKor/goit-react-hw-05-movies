@@ -1,11 +1,12 @@
+import css from "./Movie.module.css"
+
 import { getMovieByQuery } from "services/MovieAPI";
 import { useEffect, useState } from 'react';
 import { MovieList } from "components/MoveList/MoveList";
-import { MovieDetails } from "components/MovieDetails/MovieDetails";
 
 
-export const Movies = () => {
-    
+function Movies (){
+
     const [ searchValue , setSearchValue] = useState();
     const [ searchQuery, setSearchQuery] = useState();
 
@@ -23,17 +24,15 @@ export const Movies = () => {
         setSearchValue(query);
         };
 
-    console.log(searchValue);
-    console.log(searchQuery);
     return ( 
-    <>
-        <form onSubmit={onFormSubmit}>
-        <input name = "searchName" />   
-        <button type="submit"> btnText </button>
+    <div className={css.formStyle}>
+        <form onSubmit={onFormSubmit} className={css.form}>
+          <input name = "searchName" />   
+          <button type="submit"> Find </button>
         </form>
         <MovieList movies = {searchQuery}/>
-        <MovieDetails />
-    </>
+    </div>
     )
 } 
 
+export default Movies;
