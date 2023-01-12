@@ -12,6 +12,8 @@ const StyledLink = styled(NavLink)`
 `;
 
 export const SharedLayout = () => {
+
+
   return (
     <>
       <header>

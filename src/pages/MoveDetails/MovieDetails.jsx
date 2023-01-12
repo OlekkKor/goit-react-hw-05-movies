@@ -9,7 +9,7 @@ const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
 function MovieDetails (){
     const { idMovie }  = useParams();
     
-    const location = useLocation();
+    const location = useLocation();  
 
     const [movie, setMovie ] = useState(null);
     
@@ -27,7 +27,7 @@ function MovieDetails (){
             <div className={css.movieDescription}>  
               <div>
                 <p><strong>Title: </strong>{movie.title}</p>
-                <Link to={location.state?.from ?? '/movies'} ><button>Back</button></Link>
+                <Link to={location.state?.from ?? "/movies"} ><button>Back</button></Link>
               </div>
               <p className={css.overView}><strong>Overview: </strong>{movie.overview}</p>
               {genres && <p><strong>Genres: </strong>{genres}</p> }
@@ -35,11 +35,11 @@ function MovieDetails (){
           </div>
         
         <div className={css.movieAdd}>
-          <Link to="cast" className={css.movieCast} >
+          <Link to="cast" className={css.movieCast} state ={{ from: location }} >
             <button>Cast</button>
           </Link>
 
-          <Link to="reviews" className={css.movieReviews}>
+          <Link to="reviews" className={css.movieReviews} state ={{ from: location }}>
           <button>Reviews</button>
           </Link>
         </div>
