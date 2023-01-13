@@ -35,11 +35,11 @@ function MovieDetails (){
           </div>
         
         <div className={css.movieAdd}>
-          <Link to="cast" className={css.movieCast} state ={{ from: location }} >
+          <Link to="cast" className={css.movieCast} state = {{ from: location.state?.from}}>
             <button>Cast</button>
           </Link>
 
-          <Link to="reviews" className={css.movieReviews} state ={{ from: location }}>
+          <Link to="reviews" className={css.movieReviews} state = {{ from: location.state?.from}}>
           <button>Reviews</button>
           </Link>
         </div>
